@@ -17,7 +17,7 @@ ifeq ($(shell uname -s),Darwin)
     # The default ncurses library on Mac OS X supports wide characters
     # so force linking with the one in /usr/lib
     LDFLAGS = -L/usr/lib -lncurses -framework CoreAudio
-else ifeq ($(shell uname -s),Linux)
+else ifeq ($(LINUX_BACKEND),libao)
     DESPOTIFY_OBJS += libao.o
     LDFLAGS += -lncursesw -lao
 else
