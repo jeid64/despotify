@@ -6,7 +6,7 @@
 export
 
 CFLAGS = -Wall -Wextra -ggdb -std=gnu99
-LDFLAGS = -lz -lvorbisfile
+LDFLAGS = -lz -lvorbisfile -lmpg123
 
 LD = $(CC)
 
