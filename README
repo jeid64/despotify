@@ -4,6 +4,10 @@ Despotify - the open source Spotify client
 http://despotify.se/
 
 
+Accounts
+~~~~~~~~~~
+Despotify can only be utilized with "Premium" Spotify accounts. 
+
 Source code
 ~~~~~~~~~~
 The latest version of the source code can be checked out from our Subversion repository
