@@ -6,7 +6,7 @@
 export
 
 CFLAGS = -Wall -Wextra -ggdb -std=gnu99
-LDFLAGS = -lz -lvorbisfile -lmpg123
+LDFLAGS = -lz -lvorbisfile
 
 LD = $(CC)
 
@@ -24,6 +24,11 @@ include Makefile.local.mk
 
 ifeq ($(DEBUG), 1)
     CFLAGS += -DDEBUG
+endif
+
+ifeq ($(MP3_SUPPORT), 1)
+    CFLAGS += -DMP3_SUPPORT
+    LDFLAGS += -lmpg123
 endif
 
 # Mac OS X specifics

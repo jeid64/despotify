@@ -253,7 +253,7 @@ static int parse_tracks(ezxml_t xml, struct track* t, bool ordered, bool high_bi
             char* fmt = (char*)ezxml_attr(file, "format");
             if (fmt) {
                 unsigned int bitrate;
-                if (sscanf(fmt,"Ogg Vorbis,%u,", &bitrate)) {
+                if (sscanf(fmt,"Ogg Vorbis,%u,", &bitrate) || sscanf(fmt,"MPEG 1 layer 3,%u", &bitrate)) {
                     if (bitrate > t->file_bitrate) {
                         if (high_bitrate || t->file_bitrate == 0)
                             t->file_bitrate = bitrate;
@@ -261,8 +261,16 @@ static int parse_tracks(ezxml_t xml, struct track* t, bool ordered, bool high_bi
                             continue;
                     }
                 }
-                        
+
                 char* id = (char*)ezxml_attr(file, "id");
+#ifndef MP3_SUPPORT
+                if ( strncmp("Ogg",fmt,3) != 0 ) {
+                	/* Ignore */
+                	DSFYDEBUG("Ignoring %s:%s\n",id,fmt);
+                	continue;
+                }
+#endif
+                
                 if (id) {
                     DSFYstrncpy(t->file_id, id, sizeof t->file_id);
                     t->playable = true;

@@ -33,3 +33,10 @@ LINUX_BACKEND = libao
 ## via 'port install ..', try uncommenting these lines
 # CFLAGS += -I/opt/local/include
 # LDFLAGS += -L/opt/local/lib
+
+
+## Uncomment this if you want support for decoding MP3 streams
+## (Requires libmpg123). 
+## This is not required for normal use, as all tracks are 
+## available as OGG Vorbis.
+# MP3_SUPPORT = 1
