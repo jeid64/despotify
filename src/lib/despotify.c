@@ -792,7 +792,7 @@ static bool despotify_load_tracks(struct despotify_session *ds, bool cache_do_st
     /* construct an array of 16-byte track ids */
     char* tracklist = malloc(MAX_BROWSE_REQ * 16);
     SHA1_CTX sha_ctx;
-    unsigned char hash[20], tracks_hash[33];
+    unsigned char hash[20], tracks_hash[41];
     int track_count = 0;
 
     /* don't request too many tracks at once */
@@ -810,6 +810,7 @@ static bool despotify_load_tracks(struct despotify_session *ds, bool cache_do_st
         SHA1Final(hash, &sha_ctx);
 
         hex_bytes_to_ascii(hash, tracks_hash, 20);
+        tracks_hash[40] = '\0'; /* enforce string termination */
 
         /* check cache */
         if (ds->use_cache && cache_contains(tracks_hash)) {
