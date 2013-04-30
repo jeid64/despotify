@@ -1,0 +1,24 @@
+
+# /src/
+/src/Makefile.local.mk
+
+# /src/bindings/python/
+/src/bindings/python/build
+
+# /src/bindings/python/doc/
+/src/bindings/python/doc/_build
+
+# /src/bindings/ruby/
+/src/bindings/ruby/build
+/src/bindings/ruby/Makefile
+
+# /src/clients/gateway/
+/src/clients/gateway/gateway
+/src/clients/gateway/Makefile.dep
+
+# /src/clients/simple/
+/src/clients/simple/simple
+/src/clients/simple/Makefile.dep
+
+# /src/lib/
+/src/lib/Makefile.dep

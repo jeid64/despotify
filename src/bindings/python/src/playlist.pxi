@@ -1,4 +1,5 @@
 # vim: set fileencoding=utf-8 filetype=pyrex :
+from cpython cimport bool
 
 cdef class Playlist(SpotifyObject):
     def __init__(self):
